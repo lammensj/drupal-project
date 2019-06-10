@@ -1,0 +1,14 @@
+{
+  "patches": {
+    "drupal/core": {
+      "Profile provided configuration entities can have unmeetable dependencies": "https://www.drupal.org/files/issues/2018-10-08/unmeetable-dependencies-2922417-28.patch",
+      "Views exposed form Ajax selector doesn't work on buttons": "https://www.drupal.org/files/issues/2018-09-12/views-ajax-views-exposed-filter-button-2998908-1-D8.patch",
+      "Views file name suggestions often missing from Twig debugging": "https://www.drupal.org/files/issues/views-template-suggestions-2839945-2.patch",
+      "CSRF check always fails for users without a session": "https://www.drupal.org/files/issues/2018-08-31/csrf_check_always_fails-2730351-68_2.patch",
+      "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2019-05-04/2457999-194.patch"
+    },
+    "drupal/webform": {
+      "Error: Call to a member function getRequestTime() on null": "https://www.drupal.org/files/issues/2019-04-13/3046920-8.patch"
+    }
+  }
+}
