@@ -1,12 +1,12 @@
 {
-    "name": "drupal-composer/drupal-project",
+    "name": "lammensj/drupal-project",
     "description": "Project template for Drupal 8 projects with composer",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "",
-            "role": ""
+            "name": "Jasper Lammens",
+            "role": "Owner"
         }
     ],
     "repositories": [
@@ -26,10 +26,15 @@
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "zaporylie/composer-drupal-optimizations": "^1.0"
+        "zaporylie/composer-drupal-optimizations": "^1.0",
+        "drupal-composer/drupal-paranoia": "~1",
+        "grasmash/drupal-security-warning": "^1.1",
+        "lammensj/resilient": "^8.2",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "require-dev": {
-        "webflo/drupal-core-require-dev": "^8.7.0"
+        "webflo/drupal-core-require-dev": "^8.7.0",
+        "roave/security-advisories": "dev-master"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -53,9 +58,11 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
+            "@composer drupal:scaffold",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
+            "@composer drupal:scaffold",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
@@ -65,11 +72,11 @@
             "drupal/core": "-p2"
         },
         "installer-paths": {
-            "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
-            "web/modules/contrib/{$name}": ["type:drupal-module"],
-            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "app/core": ["type:drupal-core"],
+            "app/libraries/{$name}": ["type:drupal-library"],
+            "app/modules/contrib/{$name}": ["type:drupal-module"],
+            "app/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "app/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/{$name}": ["type:drupal-drush"]
         },
         "drupal-scaffold": {
@@ -77,6 +84,23 @@
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
             }
+        },
+        "patches-file": "composer.patches.json",
+        "drupal-paranoia": {
+            "app-dir": "app",
+            "web-dir": "web",
+            "excludes": [
+                "core/install.php",
+                "sites/simpletest",
+                "themes/custom/*/node_modules",
+                "themes/custom/*/src"
+            ]
+        },
+        "merge-plugin": {
+            "include": [
+                "app/modules/custom/*/composer.json",
+                "app/themes/custom/*/composer.json"
+            ]
         }
     }
 }
