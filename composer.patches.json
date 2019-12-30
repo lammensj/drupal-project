@@ -1,11 +1,12 @@
 {
   "patches": {
     "drupal/core": {
-      "Profile provided configuration entities can have unmeetable dependencies": "https://www.drupal.org/files/issues/2018-10-08/unmeetable-dependencies-2922417-28.patch",
       "Views exposed form Ajax selector doesn't work on buttons": "https://www.drupal.org/files/issues/2018-09-12/views-ajax-views-exposed-filter-button-2998908-1-D8.patch",
       "Views file name suggestions often missing from Twig debugging": "https://www.drupal.org/files/issues/views-template-suggestions-2839945-2.patch",
       "CSRF check always fails for users without a session": "https://www.drupal.org/files/issues/2018-08-31/csrf_check_always_fails-2730351-68_2.patch",
-      "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2019-05-04/2457999-194.patch"
+      "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2019-10-28/2457999-223.patch",
+      "Notice: Undefined index: #type in drupal_process_states()": "https://www.drupal.org/files/issues/2019-12-05/2700667-89.patch",
+      "X-Drupal-Cache-Tags / X-Drupal-Cache-Context header tags can exceed HTTP Server limits and cause WSOD": "https://www.drupal.org/files/issues/2019-05-10/x-drupal-cache-tags-can-exceed-http-server-limits-2954339-26.patch"
     }
   }
 }
