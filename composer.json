@@ -79,9 +79,20 @@
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
         },
         "drupal-scaffold": {
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "locations": {
+                "project-root": "./../",
+                "web-root": "./app"
+            },
+            "file-mapping": {
+                "[web-root]/INSTALL.txt": false,
+                "[web-root]/README.txt": false,
+                "[web-root]/sites/README.txt": false,
+                "[web-root]/modules/README.txt": false,
+                "[web-root]/profiles/README.txt": false,
+                "[web-root]/themes/README.txt": false
             }
         },
         "patches-file": "composer.patches.json",
